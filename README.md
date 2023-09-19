@@ -8,3 +8,5 @@ dataredAug17 -- summary of SANS data input and reformatting in csv files ; analy
 ChekSep5OutLoop -- code for generation of ensemble using ATSAS, XPLOR-NIH and preliminary analyisis and illustration of extremes, and of decoys. 
 
 phephe -- examining the distribution of distances and F-F probabilities in various sets 
+
+unifiedfun -- additional subroutine functions used
