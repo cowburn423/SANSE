@@ -2,6 +2,8 @@
 
 This tool processes multiple Excel (.xlsx) files containing measurement data and calculates weighted averages using inverse variance weighting.
 
+**Available in both Python and MATLAB versions.**
+
 ## Overview
 
 The script identifies all `.xlsx` files in a directory, loads them as tables with specific columns, and produces weighted averages for each measurement using the error columns as weights.
@@ -30,13 +32,21 @@ This method gives more weight to measurements with smaller errors (higher precis
 
 ## Installation
 
+### Python
+
 Install required Python packages:
 
 ```bash
 pip3 install pandas openpyxl
 ```
 
+### MATLAB
+
+No additional packages required. The MATLAB scripts use built-in functions.
+
 ## Usage
+
+### Python Usage
 
 ### Basic Usage
 
@@ -79,6 +89,53 @@ This will:
 2. Process all files and calculate weighted averages
 3. Save results to `sample_data/weighted_averages.xlsx`
 
+### MATLAB Usage
+
+#### Basic Usage
+
+Process all `.xlsx` files in the current directory:
+
+```matlab
+results = weighted_average_xlsx();
+```
+
+#### Specify Directory
+
+Process files in a specific directory:
+
+```matlab
+results = weighted_average_xlsx('path/to/data/directory');
+```
+
+#### Custom Output File
+
+Specify both input directory and output filename:
+
+```matlab
+results = weighted_average_xlsx('path/to/data', 'output_results.xlsx');
+```
+
+#### Example
+
+The repository includes a sample data generator and example script:
+
+```matlab
+% Create sample data
+create_sample_data('sample_data_matlab', 3);
+
+% Process the sample data
+results = weighted_average_xlsx('sample_data_matlab', 'weighted_averages_matlab.xlsx');
+
+% Or simply run the complete example
+example_weighted_average;
+```
+
+This will:
+1. Create 3 sample `.xlsx` files in the `sample_data_matlab/` directory
+2. Process all files and calculate weighted averages
+3. Save results to `sample_data_matlab/weighted_averages_matlab.xlsx`
+4. Display results and create plots
+
 ## Output
 
 The script generates an Excel file containing:
@@ -105,3 +162,16 @@ The output also displays a summary table in the terminal showing the calculated 
 - NaN values and zero errors are automatically filtered out before calculation
 - Each index can have different numbers of measurements across files
 - The weighted error provides a statistically valid estimate of uncertainty
+
+## Files in Repository
+
+### Python Files
+- `weighted_average_xlsx.py` - Main Python script for processing xlsx files
+- `create_sample_data.py` - Python script to generate sample data
+- `sample_data/` - Directory containing Python-generated sample files
+
+### MATLAB Files
+- `weighted_average_xlsx.m` - Main MATLAB function for processing xlsx files
+- `create_sample_data.m` - MATLAB function to generate sample data
+- `example_weighted_average.m` - Complete MATLAB example with plots
+- `sample_data_matlab/` - Directory for MATLAB-generated sample files (created on first run)
